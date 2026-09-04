@@ -19,22 +19,20 @@
     transition-duration: .2s;
   }
 
-  &.active {
-    margin-bottom: .4em;
-    .burger-button__line {
-      &:last-child {
-        display: none;
-      }
-
-      &:first-child {
-        rotate: 45deg;
-        transform-origin: 1;
-        translate: 0em .9em;
-      }
-
-      &:nth-child(2) {
-        rotate: -45deg;
-      }
+&.active {
+  margin-bottom: .4em;
+  .burger-button__line {
+    &:last-child {
+      display: none;
+    }
+    &:first-child {
+      transform-origin: center;
+      transform: translate(0, .9em) rotate(45deg);
+    }
+    &:nth-child(2) {
+      transform-origin: center;
+      transform: rotate(-45deg);
     }
   }
+}
 }

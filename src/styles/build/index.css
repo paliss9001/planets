@@ -725,12 +725,12 @@ html {
   display: none;
 }
 .burger-button.active .burger-button__line:first-child {
-  rotate: 45deg;
-  transform-origin: 1;
-  translate: 0em 0.9em;
+  transform-origin: center;
+  transform: translate(0, 0.9em) rotate(45deg);
 }
 .burger-button.active .burger-button__line:nth-child(2) {
-  rotate: -45deg;
+  transform-origin: center;
+  transform: rotate(-45deg);
 }
 
 /*# sourceMappingURL=index.css.map */
