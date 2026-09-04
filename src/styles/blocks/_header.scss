@@ -112,6 +112,7 @@
 
     &.active {
       transform: translateY(0);
+      visibility: hidden;
     }
   }
 }

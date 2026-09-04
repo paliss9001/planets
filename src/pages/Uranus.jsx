@@ -24,6 +24,7 @@ export default function Uranus() {
           planetData={planetData}
           geology={geologyUranus}
           internalImg={internalUranus}
+          wikipediaLink="https://en.wikipedia.org/wiki/Uranus"
         ></Content>
       </section>
     </main>

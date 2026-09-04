@@ -24,6 +24,7 @@ export default function Neptune() {
           planetData={planetData}
           geology={geologyNeptune}
           internalImg={internalNeptune}
+          wikipediaLink="https://en.wikipedia.org/wiki/Neptune"
         ></Content>
       </section>
     </main>

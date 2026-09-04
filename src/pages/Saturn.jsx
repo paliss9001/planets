@@ -24,6 +24,7 @@ export default function Saturn() {
           planetData={planetData}
           geology={geologySaturn}
           internalImg={internalSaturn}
+          wikipediaLink="https://en.wikipedia.org/wiki/Saturn"
         ></Content>
       </section>
     </main>

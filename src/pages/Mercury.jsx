@@ -26,6 +26,7 @@ export default function Mercury() {
           planetData={planetData}
           geology={geologyMercury}
           internalImg={internalMercury}
+          wikipediaLink="https://en.wikipedia.org/wiki/Mercury_(planet)"
         ></Content>
       </section>
     </main>

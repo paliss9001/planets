@@ -9,6 +9,7 @@ export default function Content({
   planetData,
   geology,
   internalImg,
+  wikipediaLink
 }) {
   const actions = ["overview", "internal structure", "surface geology"];
   const [selectedAction, setSelectedAction] = useState("overview");
@@ -47,9 +48,10 @@ export default function Content({
                 height={400}
                 className="content__image"
                 src={targetPlanetImage}
+                alt={targetPlanetImage ? `inside of ${title}` : title}
               ></img>
               {isSurfaceGeology ? (
-                <img className="content__image-extra" src={geology}></img>
+                <img className="content__image-extra" src={geology} alt={`this outside view of ${title}`}></img>
               ) : null}
             </div>
           </div>
@@ -63,9 +65,9 @@ export default function Content({
                 Source:{" "}
                 <a
                   className="content__wikipedia"
-                  href="https://en.wikipedia.org/wiki/Earth"
+                  href={wikipediaLink}
                 >
-                  Wikipedia<img className="content__next" src={nextIcon}></img>
+                  Wikipedia<img className="content__next" alt="" src={nextIcon}></img>
                 </a>
               </span>
             </div>

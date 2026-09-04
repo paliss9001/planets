@@ -9,7 +9,7 @@ export default function Earth() {
 
   const planetData = [
     ["rotation time", "0.99 DAYS"],
-    ["revolution time", "356.26 DAYS"],
+    ["revolution time", "365.26 DAYS"],
     ["radius", "6,371 KM"],
     ["AVERAGE TEMP.", "16°C"]
   ]
@@ -24,6 +24,7 @@ export default function Earth() {
           planetData={planetData}
           geology={geologyEarth}
           internalImg={internalEarth}
+          wikipediaLink="https://en.wikipedia.org/wiki/Earth"
         ></Content>
       </section>
     </main>

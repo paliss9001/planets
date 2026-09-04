@@ -24,6 +24,7 @@ export default function Venus() {
           planetData={planetData}
           geology={geologyVenus}
           internalImg={internalVenus}
+          wikipediaLink="https://en.wikipedia.org/wiki/Venus"
         ></Content>
       </section>
     </main>

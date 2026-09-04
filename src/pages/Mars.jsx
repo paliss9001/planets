@@ -24,6 +24,7 @@ export default function Mars() {
           planetData={planetData}
           geology={geologyMars}
           internalImg={internalMars}
+          wikipediaLink="https://en.wikipedia.org/wiki/Mars"
         ></Content>
       </section>
     </main>

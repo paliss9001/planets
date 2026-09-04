@@ -24,6 +24,7 @@ export default function Jupiter() {
           planetData={planetData}
           geology={geologyJupiter}
           internalImg={internalJupiter}
+          wikipediaLink="https://en.wikipedia.org/wiki/Jupiter"
         ></Content>
       </section>
     </main>
