@@ -1,0 +1,736 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  overflow-x: hidden;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+[fill] {
+  fill: currentColor;
+}
+
+[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Antonio";
+  src: url("/assets/Antonio/Antonio-VariableFont_wght.ttf");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Spartan";
+  src: url("/assets/League_Spartan/LeagueSpartan-VariableFont_wght.ttf");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Spartan";
+  src: url("/assets/League_Spartan/LeagueSpartan-VariableFont_wght.ttf");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+.container {
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+}
+
+.container-mini {
+  max-width: 63.75rem;
+  padding-inline: 0.4375rem;
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@media (width <= 47.99875rem) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (width > 47.99875rem) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+:root {
+  /* Neutrals */
+  --neutral-950: #000000;
+  --neutral-300: #D8D8D8;
+  --neutral-0: #FFFFFF;
+  --stroke: rgba(151, 151, 151, .2);
+  /* Aqua */
+  --aqua-100: #B1D5E2;
+  --aqua-50: #DEF4FC;
+  /* Other colors */
+  --navy-950: #070724;
+  --teal-400: #1EC1A2;
+  --purple-600: #6D2ED5;
+  --bronze-700: #B87D43;
+  --red-500: #D83A34;
+  --orange-600: #FFC97C; /* note: this hex looks like it may be swapped with amber-400, see note below */
+  --amber-400: #EDA249; /* same note */
+  --blue-600: #2D68F0;
+  --sky-400: #419EBB;
+  --border: 1px solid var(--stroke);
+}
+
+.button {
+  background-color: var(--navy-950);
+  border: var(--border);
+  padding: 1.0625rem 1rem;
+  transition-duration: 0.25s;
+  border-radius: 2px;
+  padding: 0.75rem 1.5rem;
+}
+
+body {
+  background-image: url("/assets/background-stars.svg");
+  background-color: var(--navy-950);
+}
+
+.earth {
+  background-color: var(--purple-600);
+}
+
+.mercury {
+  background-color: var(--sky-400);
+}
+
+.venus {
+  background-color: var(--amber-400);
+}
+
+.mars,
+.jupiter {
+  background-color: var(--red-500);
+}
+
+.saturn {
+  background-color: var(--bronze-700);
+}
+
+.uranus {
+  background-color: var(--teal-400);
+}
+
+.neptune {
+  background-color: var(--blue-600);
+}
+
+a.earth, .button-under.earth {
+  background-color: unset;
+  border-bottom: 2px solid var(--purple-600);
+}
+a.mercury, .button-under.mercury {
+  background-color: unset;
+  border-bottom: 2px solid var(--sky-400);
+}
+a.venus, .button-under.venus {
+  background-color: unset;
+  border-bottom: 2px solid var(--amber-400);
+}
+a.mars, a.jupiter, .button-under.mars, .button-under.jupiter {
+  background-color: unset;
+  border-bottom: 2px solid var(--red-500);
+}
+a.saturn, .button-under.saturn {
+  background-color: unset;
+  border-bottom: 2px solid var(--bronze-700);
+}
+a.uranus, .button-under.uranus {
+  background-color: unset;
+  border-bottom: 2px solid var(--teal-400);
+}
+a.neptune, .button-under.neptune {
+  background-color: unset;
+  border-bottom: 2px solid var(--blue-600);
+}
+
+html {
+  scrollbar-width: none;
+}
+
+.header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--stroke);
+}
+@media (width <= 47.99875rem) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+}
+.header__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (width <= 63.99875rem) {
+  .header__navigation {
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+}
+@media (width <= 47.99875rem) {
+  .header__navigation {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.header a {
+  text-decoration: none;
+  color: #fff;
+}
+.header__title {
+  font-family: "Antonio", sans-serif;
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 130%;
+  letter-spacing: -0.0625rem;
+}
+.header__planets-list {
+  display: flex;
+  column-gap: 2.5rem;
+}
+.header__planets-list a {
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 225%;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: var(--neutral-300);
+  font-family: "Spartan";
+}
+.header__link-wrapper {
+  position: relative;
+}
+.header__planets-list-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem;
+}
+.header__planets-list-mobile a {
+  padding-block: 1.25rem;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 165%;
+  letter-spacing: 0.084375rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--stroke);
+  display: inline-flex;
+  align-content: center;
+}
+.header__planets-list-mobile a.active {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.header__planets-list-mobile a::after {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  background-repeat: no-repeat;
+  background-image: url("/assets/icon-chevron.svg");
+  margin-left: auto;
+}
+.header__planets-list-mobile a::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  border-radius: 50%;
+  background-color: var(--aqua-100);
+  margin-right: 1rem;
+}
+.header__planets-list-mobile a:nth-child(even)::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  border-radius: 50%;
+  background-color: var(--aqua-50);
+}
+.header__burger-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: var(--navy-950);
+  transition-duration: 0.3s;
+}
+@media (width > 47.99875rem) {
+  .header__burger-menu {
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+.header__burger-menu {
+  transform: translateY(-100%);
+}
+.header__burger-menu.active {
+  transform: translateY(0);
+}
+
+.content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5.375rem;
+  padding-inline: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (width > 47.99875rem) {
+  .content {
+    margin-top: 7.5625rem;
+  }
+}
+.content__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5.625rem;
+  justify-content: center;
+  align-items: center;
+}
+@media (width <= 63.99875rem) {
+  .content__main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+@media (width <= 47.99875rem) {
+  .content__main {
+    flex-direction: column;
+    row-gap: 4.5rem;
+  }
+}
+.content__img {
+  flex-shrink: 0;
+}
+@media (width <= 63.99875rem) {
+  .content__img {
+    max-width: 25rem;
+  }
+}
+.content__extra-main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+.content__description {
+  width: 50ch;
+  font-family: "Spartan", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 180%;
+  letter-spacing: 0rem;
+}
+@media (width <= 47.99875rem) {
+  .content__description {
+    font-family: "Spartan", sans-serif;
+    font-weight: 400;
+    font-size: 0.6875rem;
+    line-height: 200%;
+    letter-spacing: 0rem;
+  }
+}
+.content__title {
+  font-family: "Antonio", sans-serif;
+  font-weight: 700;
+  font-size: 5rem;
+  line-height: 130%;
+  letter-spacing: 0rem;
+  font-weight: 400;
+}
+@media (width <= 47.99875rem) {
+  .content__title {
+    font-family: "Antonio", sans-serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 130%;
+    letter-spacing: -0.09375rem;
+  }
+}
+.content__source {
+  font-family: "Spartan", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 180%;
+  letter-spacing: 0rem;
+  color: var(--neutral-300);
+  display: flex;
+  column-gap: 0.5rem;
+}
+.content__wikipedia {
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 180%;
+  letter-spacing: 0rem;
+  color: var(--neutral-300);
+  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  column-gap: 0.3rem;
+}
+.content__next {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+.content__actions {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.content__actions--mobile {
+  flex-direction: row;
+  border-bottom: 1px solid var(--stroke);
+  justify-content: space-between;
+}
+.content__actions--mobile button {
+  border-top: none;
+  padding: 0.5rem 1rem;
+  flex-grow: 1;
+  display: inline-flex;
+  justify-content: center;
+  border-inline: none;
+}
+.content__action-item {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 210%;
+  letter-spacing: 0.15625rem;
+  column-gap: 1.875rem;
+}
+.content__action-count {
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 210%;
+  letter-spacing: 0.15625rem;
+  color: var(--neutral-300);
+}
+.content__info {
+  display: flex;
+  width: 100%;
+  column-gap: 1.875rem;
+}
+@media (width <= 47.99875rem) {
+  .content__info {
+    flex-direction: column;
+    row-gap: 0.5rem;
+  }
+}
+.content__data-item {
+  background-color: var(--navy-950);
+  border: var(--border);
+  padding: 1.0625rem 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+@media (width <= 47.99875rem) {
+  .content__data-item {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.content__term {
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 225%;
+  letter-spacing: 0.0625rem;
+  color: var(--neutral-300);
+  text-transform: uppercase;
+}
+@media (width <= 47.99875rem) {
+  .content__term {
+    font-family: "Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 0.5rem;
+    line-height: 200%;
+    letter-spacing: 0.046875rem;
+  }
+}
+.content__data {
+  font-family: "Antonio", sans-serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 130%;
+  letter-spacing: -0.09375rem;
+}
+@media (width <= 47.99875rem) {
+  .content__data {
+    font-family: "Antonio", sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 130%;
+    letter-spacing: -0.046875rem;
+  }
+}
+.content__image-extra {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  translate: -50% -50%;
+  top: 90%;
+  width: 10.1875rem;
+  height: 12.5rem;
+}
+.content__img-inner {
+  position: relative;
+  width: fit-content;
+}
+@media (width <= 63.99875rem) {
+  .content__extra {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (width <= 47.99875rem) {
+  .content__extra {
+    flex-direction: column;
+  }
+}
+@media (width <= 47.99875rem) {
+  .content__extra-main {
+    align-items: center;
+  }
+}
+
+.burger-button {
+  width: 1.5rem;
+  height: 1.0625rem;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0;
+  transition-duration: 0.2s;
+  z-index: 20;
+}
+.burger-button__line {
+  width: 100%;
+  height: 0.1875rem;
+  background-color: #979797;
+  transition-duration: 0.2s;
+}
+.burger-button.active {
+  margin-bottom: 0.4em;
+}
+.burger-button.active .burger-button__line:last-child {
+  display: none;
+}
+.burger-button.active .burger-button__line:first-child {
+  rotate: 45deg;
+  transform-origin: 1;
+  translate: 0em 0.9em;
+}
+.burger-button.active .burger-button__line:nth-child(2) {
+  rotate: -45deg;
+}
+
+/*# sourceMappingURL=index.css.map */

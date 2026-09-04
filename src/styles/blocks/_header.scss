@@ -1,0 +1,117 @@
+@use "../helpers/" as *;
+
+.header {
+  padding: rem(24) rem(32);
+  // border-bottom: var(--border);
+  border-bottom: 1px solid var(--stroke);
+
+  @include mobile {
+    padding: rem(24) rem(16);
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // border-bottom: 1px solid var(--stroke);
+
+    @include tablet {
+      flex-direction: column;
+      row-gap: rem(32);
+    }
+
+    @include mobile {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &__title {
+    @include text-preset-4;
+  }
+
+  &__planets-list {
+    display: flex;
+    column-gap: rem(40);
+
+    a {
+      @include text-preset-10-bold;
+      text-transform: uppercase;
+      color: var(--neutral-300);
+      font-family: "Spartan";
+    }
+  }
+
+  &__link-wrapper {
+    position: relative;
+  }
+
+  &__planets-list-mobile {
+    display: flex;
+    flex-direction: column;
+    padding: rem(24) rem(20);
+    
+
+    & a {
+      padding-block: rem(20);
+      @include text-preset-7;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--stroke);
+      display: inline-flex;
+      align-content: center;
+
+      &.active {
+        opacity: .5;
+        pointer-events: none;
+      }
+
+      &::after {
+        content: "";
+        @include square(rem(20));
+        background-repeat: no-repeat;
+        background-image: url("/assets/icon-chevron.svg");
+        margin-left: auto;
+      }
+
+      &::before {
+        content: "";
+        @include square(rem(20));
+        display: inline-flex;
+        border-radius: 50%;
+        background-color: var(--aqua-100);
+        margin-right: 1rem;
+      }
+
+      &:nth-child(even)::before {
+        content: "";
+        @include square(rem(20));
+        display: inline-flex;
+        border-radius: 50%;
+        background-color: var(--aqua-50);
+      }
+    }
+  }
+
+  &__burger-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--navy-950);
+    transition-duration: .3s;
+
+    @include mobile-above {
+      @include visually-hidden;
+    }
+    transform: translateY(-100%);
+
+    &.active {
+      transform: translateY(0);
+    }
+  }
+}

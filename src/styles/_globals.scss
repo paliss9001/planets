@@ -1,0 +1,78 @@
+@use "helpers" as *;
+
+body {
+  background-image: url("/assets/background-stars.svg");
+  background-color: var(--navy-950);
+}
+
+.earth {
+  background-color: var(--purple-600);
+}
+
+.mercury {
+  background-color: var(--sky-400);
+}
+
+.venus {
+  background-color: var(--amber-400);
+}
+
+.mars,
+.jupiter {
+  background-color: var(--red-500);
+}
+
+.saturn {
+  background-color: var(--bronze-700);
+}
+
+.uranus {
+  background-color: var(--teal-400);
+}
+
+.neptune {
+  background-color: var(--blue-600);
+}
+
+
+
+a, .button-under {
+  &.earth {
+    background-color: unset;
+    border-bottom: 2px solid var(--purple-600);
+  }
+
+  &.mercury {
+    background-color: unset;
+    border-bottom: 2px solid var(--sky-400);
+  }
+
+  &.venus {
+    background-color: unset;
+    border-bottom: 2px solid var(--amber-400);
+  }
+
+  &.mars, &.jupiter {
+    background-color: unset;
+    border-bottom: 2px solid var(--red-500);
+  }
+
+  &.saturn {
+    background-color: unset;
+    border-bottom: 2px solid var(--bronze-700);
+  }
+
+  &.uranus {
+    background-color: unset;
+    border-bottom: 2px solid var(--teal-400);
+  }
+
+  &.neptune {
+    background-color: unset;
+    border-bottom: 2px solid var(--blue-600);
+  }
+}
+
+html {
+  scrollbar-width: none;
+}

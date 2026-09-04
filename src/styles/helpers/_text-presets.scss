@@ -1,0 +1,136 @@
+@use 'functions' as *;
+
+// Preset 1 (Top)
+@mixin text-preset-1 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700; // Bold
+  font-size: rem(80);
+  line-height: 130%;
+  letter-spacing: rem(0);
+}
+
+// Preset 2
+@mixin text-preset-2 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400; // Regular
+  font-size: rem(48);
+  line-height: 130%;
+  letter-spacing: rem(0);
+}
+
+// Preset 3
+@mixin text-preset-3 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400;
+  font-size: rem(40);
+  line-height: 130%;
+  letter-spacing: rem(-1.5);
+}
+
+// Preset 4
+@mixin text-preset-4 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400;
+  font-size: rem(28);
+  line-height: 130%;
+  letter-spacing: rem(-1);
+}
+
+// Preset 5
+@mixin text-preset-5 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400;
+  font-size: rem(24);
+  line-height: 130%;
+  letter-spacing: rem(-1);
+}
+
+// Text Preset 6
+@mixin text-preset-6 {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 400;
+  font-size: rem(20);
+  line-height: 130%;
+  letter-spacing: rem(-0.75);
+}
+
+// Text Preset 7
+@mixin text-preset-7 {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(15);
+  line-height: 165%;
+  letter-spacing: rem(1.35);
+}
+
+// Text Preset 8 (Bold)
+@mixin text-preset-8-bold {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(14);
+  line-height: 180%;
+  letter-spacing: rem(0);
+}
+
+// Text Preset 8 (Regular)
+@mixin text-preset-8-regular {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 400;
+  font-size: rem(14);
+  line-height: 180%;
+  letter-spacing: rem(0);
+}
+
+// Text Preset 9 (Bold)
+@mixin text-preset-9-bold {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(12);
+  line-height: 210%;
+  letter-spacing: rem(2.5);
+}
+
+// Text Preset 9 (Regular)
+@mixin text-preset-9-regular {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 400;
+  font-size: rem(12);
+  line-height: 210%;
+  letter-spacing: rem(0);
+}
+
+// Text Preset 10 (Bold)
+@mixin text-preset-10-bold {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(11);
+  line-height: 225%;
+  letter-spacing: rem(1);
+}
+
+// Text Preset 10 (Regular)
+@mixin text-preset-10-regular {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 400;
+  font-size: rem(11);
+  line-height: 200%;
+  letter-spacing: rem(0);
+}
+
+// Text Preset 11
+@mixin text-preset-11 {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(9);
+  line-height: 275%;
+  letter-spacing: rem(2);
+}
+
+// Text Preset 12
+@mixin text-preset-12 {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  font-size: rem(8);
+  line-height: 200%;
+  letter-spacing: rem(0.75);
+}

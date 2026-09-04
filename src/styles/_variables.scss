@@ -1,0 +1,24 @@
+:root {
+  /* Neutrals */
+  --neutral-950: #000000;
+  --neutral-300: #D8D8D8;
+  --neutral-0: #FFFFFF;
+  --stroke: rgba(151, 151, 151, .2);
+
+  /* Aqua */
+  --aqua-100: #B1D5E2;
+  --aqua-50: #DEF4FC;
+
+  /* Other colors */
+  --navy-950: #070724;
+  --teal-400: #1EC1A2;
+  --purple-600: #6D2ED5;
+  --bronze-700: #B87D43;
+  --red-500: #D83A34;
+  --orange-600: #FFC97C; /* note: this hex looks like it may be swapped with amber-400, see note below */
+  --amber-400: #EDA249; /* same note */
+  --blue-600: #2D68F0;
+  --sky-400: #419EBB;
+
+  --border: 1px solid var(--stroke);
+}

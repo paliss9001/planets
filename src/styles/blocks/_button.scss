@@ -1,0 +1,9 @@
+@use '../helpers/' as *;
+
+.button {
+  @include tile;
+
+  transition-duration: .25s;
+  border-radius: 2px;
+  padding: rem(12) rem(24);
+}
