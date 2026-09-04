@@ -46,7 +46,7 @@ export default App
 
 function LinkPlanet({planet, activePlanet, handleActivePlanet}) {
   if (planet === "mercury") {
-    return <Link to={`/`} data-planet={planet} onClick={handleActivePlanet} className={planet === activePlanet ? planet : ""}>{planet}</Link>
+    return <Link to={`/`} data-planet={planet} onClick={handleActivePlanet} className={planet === activePlanet ? planet+ " active" : ""}>{planet}</Link>
   }
   
   return (
